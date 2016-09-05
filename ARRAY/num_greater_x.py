@@ -1,3 +1,8 @@
+#find number greater than x and having same digits as x
+#"321"  -> 321
+#"123"  -> 132
+
+
 def bubble_sort(arr, idx):
 	n = len(arr)
 	for i in range(idx+1, n):
