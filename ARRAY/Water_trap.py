@@ -1,3 +1,5 @@
+#Water Trap problem. How much water can be stored between the bars.
+
 import numpy as np
 
 def water_trap(arr):

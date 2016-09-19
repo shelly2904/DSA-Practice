@@ -1,3 +1,6 @@
+#Compute power of number, solutions O(n) and O(log n) where n is the power
+
+
 def power(x, n):
 	if n==0:
 		return 1

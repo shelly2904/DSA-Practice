@@ -1,3 +1,5 @@
+#Least Common Subsequence Problem
+
 import numpy as np
 def LCS(X, Y):
 	

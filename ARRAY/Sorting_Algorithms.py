@@ -1,4 +1,4 @@
-#sorting 
+#sorting  algorithms
 
 #SELECTION SORT
 def selection_sort(arr):

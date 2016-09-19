@@ -1,3 +1,5 @@
+#Coin Denomination problem, arrange the X with coin array of different denominations.
+
 import numpy as np
 
 		
