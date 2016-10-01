@@ -68,6 +68,13 @@ def LCA(root, n1, n2):
 		return right
 
 
+def inorder(root):
+	if not root:
+		return None
+
+	inorder(root.left)
+	print root.data
+	inorder(root.right)
 
 
 if __name__=="__main__":
@@ -78,7 +85,8 @@ if __name__=="__main__":
 	root.left.right = Node(5)
 
 	#print check_complete(root)
-	print LCA(root, 4, 5)
+	#print LCA(root, 4, 5)
+	print inorder(root)
 
 
 
