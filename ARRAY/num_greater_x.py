@@ -25,7 +25,9 @@ def find_next_great(num):
 				great = num[idx]
 				small = num[i]
 				num = num[:idx] + small + num[idx + 1:]
+				print num
 				num = num[:i] + great + num[i + 1:]
+				print num
 				flag = True
 				break
 			else:
@@ -45,4 +47,4 @@ def find_next_great(num):
 
 
 if __name__ == '__main__':
-	print find_next_great('321')
+	print find_next_great('386')
