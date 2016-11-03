@@ -43,6 +43,50 @@ class LinkedList(object):
                 cur = cur.next
 
 
+    def delete_key(self, key):
+        if self.head is None:
+            return "Linked List empty"
+        cur = self.head
+        prev = None
+        while cur:
+            #print cur.data, prev.data
+            if cur.data == key:
+                if cur == self.head:
+                    self.head = self.head.next
+                    cur.next = None
+                else:
+                    prev.next = cur.next
+                    cur.next = None
+                return True
+            prev = cur
+            cur = cur.next
+        return "Key doesnot exists"
+
+
+    def delete_at_pos(self, pos):
+        if self.head is None:
+            return "Linked List empty"
+        cur = self.head
+        prev = None
+        position = 0
+        while cur:
+            #print cur.data, prev.data
+            if position == pos:
+                if cur == self.head:
+                    self.head = self.head.next
+                    cur.next = None
+                else:
+                    prev.next = cur.next
+                    cur.next = None
+                return True
+            prev = cur
+            cur = cur.next
+            position += 1
+        return "Key doesnot exists"
+
+
+
+
     def traversal(self):
         current = self.head
         print ''
@@ -179,22 +223,26 @@ class LinkedList(object):
 
            
 if __name__=="__main__":
-    #l_inp = [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+    l_inp = [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
     
     ll = LinkedList()
-    #for l in l_inp:
-    node = Node(1)
-    ll.insert_at_end(node)
+    for l in l_inp:
+        node = Node(l)
+        ll.insert_at_end(node)
     ll.traversal()
-    node = Node(4)
-    ll.insert_at_front(node)
-    print
-    node = Node(10)
-    ll.insert_at_end(node)
-    ll.traversal()
+    #node = Node(4)
+    #ll.insert_at_front(node)
+    #print
+    #node = Node(10)
+    #ll.insert_at_end(node)
+    #ll.traversal()
+    #print 
+    #node = Node(5)
+    #ll.insert_at_pos(node, 2)
+    #ll.traversal()
+
     print 
-    node = Node(5)
-    ll.insert_at_pos(node, 2)
+    print ll.delete_at_pos(5)
     ll.traversal()
 
 
