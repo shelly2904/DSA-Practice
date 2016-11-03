@@ -122,6 +122,61 @@ class LinkedList(object):
             return 0
         return 1+ self.length_recur(cur)
 
+
+    def swap_nodes(self, X, Y):
+        if self.head is None:
+            return "Empty linked list"
+
+        curX = self.head 
+        prevX = None
+        foundX = False
+        while curX:
+            if curX.data == X:
+                foundX = True
+                break
+            else:
+                prevX = curX
+                curX = curX.next
+
+        curY = self.head 
+        prevY = None
+        foundY = False
+        while curY:
+            if curY.data == Y:
+                foundY = True
+                break
+            else:
+                prevY = curY
+                curY = curY.next
+
+        if not foundY and foundX:
+            return "One of the data doesnot exists"
+        if prevX is None:
+            temp = curX.next
+            curX.next = curY.next
+            prevY.next = curX
+            curY.next = temp
+            self.head = curY
+
+        elif prevY is None:
+            temp = curY.next
+            curY.next = curX.next
+            prevX.next = curY
+            curX.next = temp
+            self.head = curX
+
+             
+        else:
+            prevX.next = curY
+            prevY.next = curX
+            temp = curX.next
+            curX.next = curY.next
+            curY.next = temp
+
+
+
+
+
     '''
             
     def findMid(self, ll):
@@ -229,6 +284,10 @@ if __name__=="__main__":
         node = Node(l)
         ll.insert_at_end(node)
     ll.traversal()
+
+
+    print ll.swap_nodes(1, 14)
+    ll.traversal()
     #node = Node(4)
     #ll.insert_at_front(node)
     #print
@@ -244,7 +303,7 @@ if __name__=="__main__":
     #print ll.delete_at_pos(5)
     #ll.traversal()
 
-    assert ll.length_iter() == ll.length_recur(ll.head)
+    #assert ll.length_iter() == ll.length_recur(ll.head)
 
 
 
