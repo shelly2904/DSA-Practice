@@ -43,9 +43,6 @@ class LinkedList(object):
                 cur = cur.next
 
 
-
-    
-
     def traversal(self):
         current = self.head
         print ''
@@ -56,6 +53,24 @@ class LinkedList(object):
         print 'end of list'
         print ''
 
+
+
+    def length(self, ll):
+        count = 0
+        cur = ll.head
+        while cur.next:
+            cur = cur.next
+            count +=1
+        return count
+            
+    def findMid(self, ll):
+        point1 = ll.head
+        point2 = ll.head
+        while point1.next and (point1.next).next and ((point1.next).next).next:
+            #and (((point1.next).next).next).next:
+            point1 = ((point1.next).next).next
+            point2 = point2.next
+        return point2.data
 
     '''
     def length(self, ll):
