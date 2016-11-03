@@ -201,23 +201,6 @@ class LinkedList(object):
         return True
 
 
-
-    def traversal(self):
-        current = self.head
-        print ''
-        print 'start of list'
-
-        while current:
-            print current.data
-            current = current.next
-
-        print 'end of list'
-        print ''
-        
-        return True
-
-
-
     def reverse_k_nodes(self, k):
         print 'original'
         self.traversal()
