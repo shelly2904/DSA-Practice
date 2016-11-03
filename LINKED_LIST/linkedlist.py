@@ -173,7 +173,16 @@ class LinkedList(object):
             curX.next = curY.next
             curY.next = temp
 
-
+    def reverse(self):
+        current = self.head
+        prev = None
+        while current:
+            next_node=current.next
+            current.next = prev
+            prev = current
+            current = next_node
+        self.head = prev
+        return True
 
 
 
@@ -188,17 +197,7 @@ class LinkedList(object):
         return point2.data
 
 
-    def reverse(self):
-        current = self.head
-        prev = None
-        while current:
-            next_node=current.next
-            current.next = prev
-            prev = current
-            current = next_node
-        self.head = prev
-        ll.traversal()
-        return True
+
 
 
     def reverse_k_nodes(self, k):
@@ -268,9 +267,12 @@ if __name__=="__main__":
         ll.insert_at_end(node)
     ll.traversal()
 
-
-    print ll.swap_nodes(1, 14)
+    print ll.reverse()
     ll.traversal()
+
+
+    #print ll.swap_nodes(1, 14)
+    #ll.traversal()
     #node = Node(4)
     #ll.insert_at_front(node)
     #print
