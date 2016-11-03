@@ -97,15 +97,6 @@ class LinkedList(object):
         print 'end of list'
         print ''
 
-
-
-    def length(self, ll):
-        count = 0
-        cur = ll.head
-        while cur.next:
-            cur = cur.next
-            count +=1
-        return count
             
     def findMid(self, ll):
         point1 = ll.head
@@ -116,14 +107,22 @@ class LinkedList(object):
             point2 = point2.next
         return point2.data
 
-    '''
-    def length(self, ll):
+    
+    def length_iter(self):
         count = 0
-        cur = ll.head
+        cur = self.head
         while cur.next:
             cur = cur.next
             count +=1
         return count
+
+
+    def length_recur(self, cur):
+        if not cur:
+            return 0
+        return 1+ self.length_recur(cur)
+
+    '''
             
     def findMid(self, ll):
         point1 = ll.head
@@ -241,9 +240,12 @@ if __name__=="__main__":
     #ll.insert_at_pos(node, 2)
     #ll.traversal()
 
-    print 
-    print ll.delete_at_pos(5)
-    ll.traversal()
+    #print 
+    #print ll.delete_at_pos(5)
+    #ll.traversal()
+
+    assert ll.length_iter() == ll.length_recur(ll.head)
+
 
 
 
