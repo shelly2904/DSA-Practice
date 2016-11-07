@@ -185,6 +185,15 @@ class LinkedList(object):
         return True
 
 
+    def findMid(self, ll):
+        point1 = ll.head
+        point2 = ll.head
+        while point1.next and (point1.next).next and ((point1.next).next).next:
+            point1 = ((point1.next).next).next
+            point2 = point2.next
+        return point2.data
+
+
 
     '''
             
