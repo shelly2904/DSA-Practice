@@ -30,6 +30,18 @@ class Heap(object):
 		print self.heap
 
 
+	def delete(self, data, min=True):
+		idx = self.heap.index(data)
+		self.heap[idx], self.heap[self.count-1] = self.heap[self.count-1], self.heap[idx]
+		del self.heap[self.count-1]
+		self.count -= 1
+		if min:
+			self.heapify_min()
+		else:
+			self.heapify_max()
+
+
+
 
 
 if __name__=="__main__":
@@ -41,6 +53,8 @@ if __name__=="__main__":
 	minheap.insert(4)
 	minheap.insert(6)
 	minheap.insert(9)
+	minheap.print_heap()
+	minheap.delete(3)
 	minheap.print_heap()
 	print
 
