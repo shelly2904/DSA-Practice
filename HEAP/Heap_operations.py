@@ -27,7 +27,7 @@ class Heap(object):
 
 
 	def print_heap(self):
-		print self.heap
+		return self.heap
 
 
 	def delete(self, data, min=True):
@@ -41,10 +41,18 @@ class Heap(object):
 			self.heapify_max()
 
 
+	def extract(self, min=True):
+		print self.heap[0]
+		if min:
+			self.delete(self.heap[0])
+		else:
+			self.delete(self.heap[0], False)
+
 
 
 
 if __name__=="__main__":
+	#Building a min heap
 	print "Min Heap"
 	minheap = Heap()
 	minheap.insert(5)
@@ -53,11 +61,12 @@ if __name__=="__main__":
 	minheap.insert(4)
 	minheap.insert(6)
 	minheap.insert(9)
-	minheap.print_heap()
+	print minheap.print_heap()
 	minheap.delete(3)
-	minheap.print_heap()
+	print minheap.print_heap()
 	print
 
+	#Building a max heap
 	print "Max Heap"
 	maxheap = Heap()
 	maxheap.insert(5, False)
@@ -66,4 +75,15 @@ if __name__=="__main__":
 	maxheap.insert(4, False)
 	maxheap.insert(6, False)
 	maxheap.insert(9, False)
-	maxheap.print_heap()
+	print maxheap.print_heap()
+
+
+	#find k-largest element
+	k = 2
+	arr = [1,2,5,6,3]
+	maxheap = Heap()
+	for i in arr:
+		maxheap.insert(i, False)
+	arr = maxheap.print_heap()
+	for i in range(0, k):
+		maxheap.extract(False)
