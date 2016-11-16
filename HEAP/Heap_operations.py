@@ -42,15 +42,11 @@ class Heap(object):
 
 
 	def extract(self, min=True):
-		print "before extraction"
-		print self.heap
 		ele = self.heap[0]
 		if min:
 			self.delete(self.heap[0])
 		else:
 			self.delete(self.heap[0], False)
-		print "after extraction"
-		print self.heap
 		return ele
 
 
@@ -82,9 +78,10 @@ if __name__=="__main__":
 	maxheap.insert(6, False)
 	maxheap.insert(9, False)
 	#print maxheap.print_heap()
-
+	'''
 
 	#find k-largest element
+	'''
 	k = 2
 	arr = [1,2,5,6,3]
 	maxheap = Heap()
@@ -93,9 +90,20 @@ if __name__=="__main__":
 	arr = maxheap.print_heap()
 	for i in range(0, k):
 		maxheap.extract(False)
-
 	'''
 
+	k = 3
+	arr = [1,2,5,6,3]
+	minheap = Heap()
+	for i in arr:
+		minheap.insert(i)
+	arr = minheap.print_heap()
+	for i in range(0, k):
+		print minheap.extract()
+
+	
+
+	'''
 	#Merge K-sorted arrays:
 	arrays = [[2,4,5], [1,3,8]]
 	n = len(arrays[0])
@@ -115,6 +123,10 @@ if __name__=="__main__":
 		new_arr.append(mini)
 		#print minheap.heap
 	#print new_arr
+
+	'''
+
+
 
 
 
