@@ -112,9 +112,29 @@ def inorder_without_recursion(root):
 			S.push(current)
 			current = current.left
 
+def height(root):
+	if not root:
+		return 0
+	return 1+ max(height(root.left), height(root.right))
 
 
 
+def print_levelwise(root):
+	Q = Queue()
+	Q.push(root)
+	while True:
+		nodeCount = len(Q.arr)
+		if nodeCount == 0:
+			break
+		while nodeCount > 0:
+			current = Q.pop()
+			print current.data, " ",
+			if current.left:
+				Q.push(current.left)
+			if current.right:
+				Q.push(current.right)
+			nodeCount -=  1
+		print
 
 if __name__=="__main__":
 	root = Node(1)
@@ -122,7 +142,9 @@ if __name__=="__main__":
 	root.right = Node(3)
 	root.left.left = Node(4)
 	root.left.right = Node(5)
-	inorder_without_recursion(root)
+	root.left.right.right = Node(6)
+	#inorder_without_recursion(root)
+	print_levelwise(root)
 
 
 
