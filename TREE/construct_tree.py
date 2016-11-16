@@ -24,8 +24,6 @@ class Tree(object):
 		self.postorder(root.right)
 		print root.data
 
-
-
 	def create_subarray(self, P, I):
 		if len(P) == 1:
 			return Node(P[0])
