@@ -42,16 +42,22 @@ class Heap(object):
 
 
 	def extract(self, min=True):
-		print self.heap[0]
+		print "before extraction"
+		print self.heap
+		ele = self.heap[0]
 		if min:
 			self.delete(self.heap[0])
 		else:
 			self.delete(self.heap[0], False)
+		print "after extraction"
+		print self.heap
+		return ele
 
 
 
 
 if __name__=="__main__":
+	'''
 	#Building a min heap
 	print "Min Heap"
 	minheap = Heap()
@@ -61,9 +67,9 @@ if __name__=="__main__":
 	minheap.insert(4)
 	minheap.insert(6)
 	minheap.insert(9)
-	print minheap.print_heap()
+	#print minheap.print_heap()
 	minheap.delete(3)
-	print minheap.print_heap()
+	#print minheap.print_heap()
 	print
 
 	#Building a max heap
@@ -75,7 +81,7 @@ if __name__=="__main__":
 	maxheap.insert(4, False)
 	maxheap.insert(6, False)
 	maxheap.insert(9, False)
-	print maxheap.print_heap()
+	#print maxheap.print_heap()
 
 
 	#find k-largest element
@@ -87,3 +93,28 @@ if __name__=="__main__":
 	arr = maxheap.print_heap()
 	for i in range(0, k):
 		maxheap.extract(False)
+
+	'''
+
+	#Merge K-sorted arrays:
+	arrays = [[2,4,5], [1,3,8]]
+	n = len(arrays[0])
+	k = len(arrays)
+	minheap = Heap()
+	new_arr = []
+	i = 0
+	while i< n:
+		arr_temp = [a[i] for a in arrays]
+		for ele in arr_temp:
+			minheap.insert(ele)
+		i+=1
+
+	#print minheap.heap
+	while minheap.heap:
+		mini = minheap.extract()
+		new_arr.append(mini)
+		#print minheap.heap
+	#print new_arr
+
+
+

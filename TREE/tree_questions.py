@@ -3,7 +3,26 @@ class Node(object):
 		self.data = data
 		self.left = None
 		self.right = None
+		self.parent = None
 
+
+
+class Queue(object):
+	def __init__(self):
+		self.arr= []
+		self.front = 0
+		self.rear = -1
+
+	def push(self, data):
+		self.arr.append(data)
+		self.rear += 1
+
+	def pop(self):
+		if not self.arr:
+			return False
+		top = self.arr[self.front]
+		del self.arr[self.front]
+		return top
 
 class Stack(object):
 	def __init__(self):
@@ -77,16 +96,33 @@ def inorder(root):
 	inorder(root.right)
 
 
+def inorder_without_recursion(root):
+	S = Stack()
+	current = root
+	S.push(current)
+	current = current.left
+	while current:
+		S.push(current)
+		current = current.left
+	while S.arr:
+		current = S.pop()
+		print current.data
+		current = current.right
+		while current:
+			S.push(current)
+			current = current.left
+
+
+
+
+
 if __name__=="__main__":
 	root = Node(1)
 	root.left = Node(2)
 	root.right = Node(3)
 	root.left.left = Node(4)
 	root.left.right = Node(5)
-
-	#print check_complete(root)
-	#print LCA(root, 4, 5)
-	print inorder(root)
+	inorder_without_recursion(root)
 
 
 
