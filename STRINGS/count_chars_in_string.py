@@ -18,6 +18,18 @@ def count_char(string):
 
 
 
+#anagrams
+
+def check_anagrams(stringA, stringB):
+	stringA = sorted(stringA)
+	stringB = sorted(stringB)
+	if stringA == stringB:
+		return True
+	else:
+		return False
+
+
 if __name__=="__main__":
 	print count_char("abababbcdfsda")
+	print check_anagrams('abc', 'abcd')
 
