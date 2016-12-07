@@ -43,7 +43,6 @@ def approach_2(A):
 	print A
 	
 		
-
 if __name__ == '__main__':
 	B = np.array([[1,2,3,4,4], [1,4,5,2,0], [1,2,3,4,5]])
 	C = copy.deepcopy(B)
