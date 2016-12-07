@@ -17,6 +17,25 @@ def unique(string):
 
 
 
+def remove_dup(string):
+	start = 0
+	length = len(string)
+	while start < length:
+		end = length - 1
+		while end > start:
+			if string[start] == string[end]:
+				string = string[0:end] + string[end+1:]
+				length = len(string)
+			end -= 1
+		start += 1
+	return string
+
+
+
 if __name__ == '__main__':
-	print unique('abcdefghijklmnopqrstuvwxyzABCD')
+	string = 'accbbbbbbcccccaaa'
+	ans = unique(string)
+	print ans
+	if not ans:
+		print remove_dup(string)
 
