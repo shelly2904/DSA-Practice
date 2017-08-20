@@ -10,8 +10,6 @@ def find_split(arr):
 			break
 	return breakpoint
 
-
-
 def sort_arr(arr, idx):
 	n = len(arr)
 	for i in range(idx, n):
