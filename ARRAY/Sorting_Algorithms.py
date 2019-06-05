@@ -5,11 +5,15 @@
 def selection_sort(arr):
 	n = len(arr)
 	for i in range(0, n):
+		min_idx = i
 		for j in range(i, n):
-			if arr[j] < arr[i]:
-				arr[i], arr[j] = arr[j], arr[i]
+			if arr[j] < arr[min_idx]:
+				min_idx = j
+		arr[i], arr[min_idx] = arr[min_idx], arr[i]
+		print arr
 	return arr
-
+"""
+"""
 #INSERTION SORT
 #O(N^2)
 def insertion_sort(arr):
@@ -151,7 +155,7 @@ if __name__=="__main__":
 	#print "Initial Array: ", arr
 	#print "Bubble Sort: ", bubble_sort(arr)
 	#print "Insertion Sort: ", insertion_sort(arr)
-	#print "Selection Sort: ", selection_sort(arr)
+	print "Selection Sort: ", selection_sort(arr)
 	# print "Quick Sort: ", quicksort(arr,0, len(arr)-1)
 	#print "Merge Sort: ", merge_sort(arr)
-	print "Bucket Sort", bucket_sort(arr)
+	#print "Bucket Sort", bucket_sort(arr)

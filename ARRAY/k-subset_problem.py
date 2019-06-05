@@ -14,7 +14,9 @@ def find_pair(arr, x):
 			start += 1
 	return None
 
-print find_pair([1,3,4,5,6], 4)
+array = [1,3,4,5,6]
+start, end = find_pair(array, 9)
+print array[start], array[end]
 
 
 
