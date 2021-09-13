@@ -6,6 +6,7 @@ import random
 import re
 import sys
 
+
 # Complete the rotLeft function below.
 def rotRight(a, d):
     n = len(a)
@@ -29,8 +30,9 @@ def rotLeft(a, d):
     return newarr
 
 
+
 if __name__ == '__main__':
-    nd = raw_input().split()
+    nd = input().split()
 
     n = int(nd[0])
 
@@ -39,7 +41,7 @@ if __name__ == '__main__':
     a = map(int, raw_input().rstrip().split())
 
     resultLeft = rotLeft(a, d)
-    print "Rotate by left ", resultLeft 
+    print("Rotate by left ", resultLeft)
 
     resultRight = rotRight(a, d)
-    print "Rotate by right ", resultRight 
+    print("Rotate by right ", resultRight)
