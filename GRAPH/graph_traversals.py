@@ -44,7 +44,7 @@ def bfs(graph, start):
 	while len(queue.arr) > 0:
 		ele = queue.pop()
 		if ele not in visited:
-			print ele
+			print(ele)
 			visited.append(ele)
 			for i in graph[ele]:
 				queue.push(i)
@@ -58,7 +58,7 @@ def dfs(graph, start):
 	while len(stack.arr) > 0:
 		ele = stack.pop()
 		if ele not in visited:
-			print ele
+			print(ele)
 			visited.append(ele)
 			for i in graph[ele]:
 				stack.push(i)

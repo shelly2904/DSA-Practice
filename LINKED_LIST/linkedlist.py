@@ -89,13 +89,10 @@ class LinkedList(object):
 
     def traversal(self):
         current = self.head
-        print ''
-        print 'start of list'
         while current:
-            print current.data
+            print(current.data)
             current = current.next
-        print 'end of list'
-        print ''
+
 
             
     def findMid(self, ll):
@@ -274,10 +271,10 @@ if __name__=="__main__":
     for l in l_inp:
         node = Node(l)
         ll.insert_at_end(node)
-    ll.traversal()
-
-    print ll.reverse()
-    ll.traversal()
+    # ll.traversal()
+    #
+    # print ll.reverse()
+    # ll.traversal()
 
 
     #print ll.swap_nodes(1, 14)

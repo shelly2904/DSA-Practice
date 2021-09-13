@@ -11,7 +11,7 @@ def detect_cycle_directed(G, s):
 	NorStack.push(current)
 	while len(NorStack.arr) > 0:
 		current = NorStack.pop()
-		print "Traversing ", current
+		print("Traversing ", current)
 		child = G[current]
 		if any([True if c in RecurStack.arr else False for c in child ]):
 			is_cyclic = True
@@ -38,6 +38,6 @@ if __name__=="__main__":
 
 	start = '0'
 	if detect_cycle_directed(graph, start):
-		print "There is a cycle"
+		print("There is a cycle")
 	else:
-		print "There is no cycle"
+		print("There is no cycle")

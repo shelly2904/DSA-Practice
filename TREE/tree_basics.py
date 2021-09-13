@@ -1,3 +1,14 @@
+
+
+# Tree data structure using Queue
+class TreeQueue:
+	
+
+
+
+
+
+
 class TreeNode:
 	def __init__(self, data):
 		self.data = data
@@ -11,12 +22,10 @@ class TreeNode:
 
 	def get_level(self):
 		ancestors = 0 
-
 		p = self.parent
 		while p:
 			ancestors += 1
 			p = p.parent
-
 		return ancestors
 
 
