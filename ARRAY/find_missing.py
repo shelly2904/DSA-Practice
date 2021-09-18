@@ -3,7 +3,7 @@ from Sorting_Algorithms import selection_sort
 def find_missing(arr):
     arr = selection_sort(arr)
     n = len(arr)
-    for i in xrange(0, n):
+    for i in range(0, n):
         if i == 0 and arr[i] != 1:
             return 1
         if arr[i] != arr[i-1] + 1 and i != 0:

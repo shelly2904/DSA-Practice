@@ -10,11 +10,11 @@ def make_replace_extra_space(S):
 		else:
 			S_new += S[i]
 		i+=1
-	print S_new
+	print(S_new)
 
 
 def make_replace_no_space(S):
-	print "the old string ", S 
+	# print "the old string ", S
 	i = 0
 	n = len(S)
 	while i < n or i+1 < n:
@@ -26,7 +26,7 @@ def make_replace_no_space(S):
 		else:
 			i+=1
 		n = len(S)
-	print "the new string ", S
+	print("the new string ", S)
 
 
 

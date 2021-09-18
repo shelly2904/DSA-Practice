@@ -20,7 +20,7 @@ def approach_1(A):
 	for i in col_idx:
 		for j in range(0, rows):
 			A[j][i] = 0
-	print A
+	print(A)
 
 
 def approach_2(A):

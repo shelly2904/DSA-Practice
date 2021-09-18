@@ -9,7 +9,6 @@ class Tree(object):
 	def __init__(self):
 		pass
 
-
 	def height(self, root):
 		if not root:
 			return 0
@@ -35,8 +34,8 @@ class Tree(object):
 			return 0
 		l_nodes = self.number_nodes(root.left)
 		r_nodes = self.number_nodes(root.right)
-		print l_nodes, r_nodes
-		import pdb; pdb.set_trace()
+		print(l_nodes, r_nodes)
+		# import pdb; pdb.set_trace()
 		if abs(l_nodes - r_nodes) > k:
 			if self.check_k_unbalance(root.left, k) and self.check_k_unbalance(root.right, k):
 				return root.data
@@ -101,4 +100,4 @@ if __name__ == '__main__':
 	t = Tree()
 	#print t.check_balance(root)
 	#print t.check_k_unbalance(root, 1)
-	print t.check_mirror_recursion(root, root)
+	print(t.check_mirror_recursion(root, root))

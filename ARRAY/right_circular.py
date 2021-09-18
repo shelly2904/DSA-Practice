@@ -1,9 +1,9 @@
-(n, k, q) = map(int, raw_input().split(' '))
-a = map(int, raw_input().split(' '))
+(n, k, q) = map(int, input().split(' '))
+a = map(int, input().split(' '))
 
-for _ in xrange(q):
-	x = int(raw_input())
-	print a[(x-k)%n]
+for _ in range(q):
+	x = int(input())
+	print(a[(x-k)%n])
 
 
 

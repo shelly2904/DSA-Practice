@@ -5,7 +5,7 @@ def find_pair(arr, x):
 	start = 0
 	end = len(arr)-1
 	while start < end:
-		print start, end
+		print(start, end)
 		if (arr[start] + arr[end]) == x:
 			return (start, end)
 		elif  arr[start] + arr[end] > x:
@@ -14,9 +14,23 @@ def find_pair(arr, x):
 			start += 1
 	return None
 
+
+def find_pair_optimised(arr, x):
+	hasharr = [0] * x
+
+	for i in range(0, len(arr)):
+		# print(hasharr, arr[i], i, x - arr[i])
+		if hasharr[x - arr[i]] > 0:
+			print(arr[i], x - arr[i])
+			#return (arr[i], x - arr[i])
+		hasharr[arr[i]] += 1
+	#return (None, None)
+
+
+
 array = [1,3,4,5,6]
-start, end = find_pair(array, 9)
-print array[start], array[end]
+start, end = find_pair_optimised(array, 9)
+print(array[start], array[end])
 
 
 

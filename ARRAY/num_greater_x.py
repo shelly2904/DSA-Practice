@@ -24,10 +24,11 @@ def find_next_great(num):
 			if num[i] > num[idx]:
 				great = num[idx]
 				small = num[i]
+				print(num)
 				num = num[:idx] + small + num[idx + 1:]
-				print num
+				print(num)
 				num = num[:i] + great + num[i + 1:]
-				print num
+				print(num)
 				flag = True
 				break
 			else:
@@ -47,4 +48,4 @@ def find_next_great(num):
 
 
 if __name__ == '__main__':
-	print find_next_great('386')
+	print(find_next_great('386'))

@@ -26,9 +26,9 @@ def reverse(string):
 
 if __name__ == "__main__":
     # dt = "i.like.mornings"
-    dt = raw_input("Enter the string separated by .")
+    dt = input("Enter the string separated by .")
     word_list = dt.split(".")
-    for i in xrange(0, len(word_list)):
+    for i in range(0, len(word_list)):
         word_list[i] = reverse(word_list[i])
 
-    print ".".join(word_list)
+    print(".".join(word_list))

@@ -1,12 +1,5 @@
 #!/bin/python
 
-import math
-import os
-import random
-import re
-import sys
-
-
 # Complete the rotLeft function below.
 def rotRight(a, d):
     n = len(a)
