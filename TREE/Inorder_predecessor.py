@@ -67,7 +67,7 @@ def print_tree(root):
 	print_tree(root.left)
 	print_tree(root.right)
 	try:
-		print "parent of ", root.data, " is ", root.parent.data
+		print("parent of ", root.data, " is ", root.parent.data)
 	except:
 		pass
 
@@ -90,7 +90,7 @@ if __name__=="__main__":
 	root.left.right.right.left.parent = root.left.right.right
 	inorder(root)
 	print
-	print inorder_predecessor(root, 7)
+	print(inorder_predecessor(root, 7))
 	print 
 	#print inorder_successor(root, 7)
 
