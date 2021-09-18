@@ -56,4 +56,5 @@ class Solution(object):
         return reversed_int
 
 
-print(reverse(-123))
+sol = Solution()
+print(sol.reverse(-123))
