@@ -1,6 +1,6 @@
 #Reverse linked list by k nodes.
 
-class Node(object):
+class Node:
     def __init__(self, data_name):
         self.data = data_name
         self.next = None
@@ -91,6 +91,8 @@ class LinkedList(object):
         while current:
             print(current.data)
             current = current.next
+
+
 
 
             

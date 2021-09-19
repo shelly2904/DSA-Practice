@@ -23,7 +23,7 @@ def reverseString(s):
 
     i = len(s) - 1
     j = 0
-    while (i >= 0 and j < i-1):
+    while i >= 0 and j < i-1:
         print(i, j, s)
         s[j], s[i] = s[i], s[j]
         i -= 1
@@ -58,3 +58,5 @@ class Solution(object):
 
 sol = Solution()
 print(sol.reverse(-123))
+
+
