@@ -115,4 +115,24 @@ def isPalindrome(s):
     return True
 
 
-print(isPalindrome("A man, a plan, a canal: Panama"))
+# print(isPalindrome("A man, a plan, a canal: Panama"))
+
+"""
+    Given a non-empty string s, you may delete at most one character. 
+    Judge whether you can make it a palindrome.
+"""
+
+from collections import defaultdict
+def check_palindrome_after_deletion(s):
+
+    pair_encountered = 0
+    length = len(s)
+    i = 0
+    j = length - 1
+
+    while i <= j:
+        if s[i] == s[j]:
+
+
+
+print(check_palindrome_after_deletion("tebbem"))
