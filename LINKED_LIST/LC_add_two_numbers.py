@@ -147,9 +147,72 @@ class Solution():
 
         return l3
 
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution2(object):
+    def addTwoNumbers(self, l1, l2):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+
+        global dummy_head
+        stack1 = []
+        stack2 = []
+
+        l1_head = l1
+        l2_head = l2
+
+        while l1_head:
+            stack1.append(l1_head.val)
+            l1_head = l1_head.next
+
+        while l2_head:
+            stack2.append(l2_head.val)
+            l2_head = l2_head.next
+
+
+        start = 0
+
+        carry = 0
+        while stack1 or stack2:
+            l1_val = stack1.pop() if stack1 else 0
+            l2_val = stack2.pop() if stack2 else 0
+
+            sum_val = l1_val + l2_val + carry
+            carry = sum_val // 10
+            sum_val = sum_val % 10
+
+            if start == 0:
+                dummy_head = ListNode(sum_val)
+            else:
+                dummy_node = ListNode(sum_val)
+                dummy_node.next = dummy_head
+                dummy_head = dummy_node
+            start += 1
+
+        if carry > 0:
+            dummy_node = ListNode(carry)
+            dummy_node.next = dummy_head
+            dummy_head = dummy_node
+
+        return dummy_head
+
+def traversal(head):
+    current = head
+    while current:
+        print(current.val)
+        current = current.next
+
 if __name__ == "__main__":
-    l1 = [5, 4, 3]
-    l2 = [5, 6, 7]
+    l1 = [5]
+    l2 = [5]
 
     ll_1 = LinkedList()
     for l in l1:
@@ -161,9 +224,9 @@ if __name__ == "__main__":
         node = ListNode(l)
         ll_2.insert_at_end(node)
 
-    sol = Solution()
+    sol = Solution2()
 
-    result = sol.add_two_number(ll_1.head, ll_2.head)
-    result.traversal()
+    result = sol.addTwoNumbers(ll_1.head, ll_2.head)
+    traversal(result)
 
 
