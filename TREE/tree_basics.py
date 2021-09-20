@@ -1,14 +1,3 @@
-
-
-# Tree data structure using Queue
-class TreeQueue:
-	
-
-
-
-
-
-
 class TreeNode:
 	def __init__(self, data):
 		self.data = data
@@ -35,9 +24,6 @@ class TreeNode:
 		if len(self.children) > 0:
 			for child in self.children:
 				child.print_tree()
-
-
-
 
 def build_tree():
 	root = TreeNode("Electronics")
