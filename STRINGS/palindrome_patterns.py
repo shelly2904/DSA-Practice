@@ -123,16 +123,16 @@ def isPalindrome(s):
 """
 
 from collections import defaultdict
-def check_palindrome_after_deletion(s):
-
-    pair_encountered = 0
-    length = len(s)
-    i = 0
-    j = length - 1
-
-    while i <= j:
-        if s[i] == s[j]:
-
-
-
-print(check_palindrome_after_deletion("tebbem"))
+# def check_palindrome_after_deletion(s):
+#
+#     pair_encountered = 0
+#     length = len(s)
+#     i = 0
+#     j = length - 1
+#
+#     while i <= j:
+#         if s[i] == s[j]:
+#
+#
+#
+# print(check_palindrome_after_deletion("tebbem"))
