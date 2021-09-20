@@ -12,7 +12,22 @@ class Solution(object):
         :type height: List[int]
         :rtype: int
         """
-        return None
+
+        water_trapped = 0
+
+        length = len(height)
+
+        i, j = 0, length - 1
+
+        while i < j:
+            # print(water_trapped, height[i], height[j], (j-i))
+            water_trapped = max(water_trapped, min(height[i], height[j]) * (j - i))
+            if height[i] < height[j]:
+                i += 1
+            else:
+                j -= 1
+
+        return water_trapped
 
 sol = Solution()
 print(sol.maxArea([1,8,6,2,5,4,8,3,7]))
