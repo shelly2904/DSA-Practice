@@ -83,4 +83,48 @@ def nsl(arr):
         stack.append(arr[i])
     return res
 
-print(nsl([6,0,5,7,1,9]))
+
+"""
+Stock Span Problem
+"""
+
+def stock_span_problem(arr):
+    # Output arr
+    res = [-1] * len(arr)
+
+    # stack
+    stack = deque()
+
+    # to start from the end
+    for i in range(len(arr)):
+        while stack:
+            if stack[-1][0] <= arr[i]:
+                stack.pop()
+            else:
+                res[i] = stack[-1][1]
+                break
+        stack.append((arr[i], i))
+
+    for i in range(len(res)):
+        # if res[i] == -1:
+        #     continue
+
+        res[i] = i - res[i]
+
+    return res
+
+"""
+Maximum Area in Histogram
+"""
+
+
+
+"""
+Maximum Area histogram in Binary Matrix
+"""
+
+"""
+Rain water trapping
+"""
+
+print(stock_span_problem([100, 80, 60, 70, 60, 75, 85]))
