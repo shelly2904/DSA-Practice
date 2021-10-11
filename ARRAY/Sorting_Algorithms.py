@@ -10,7 +10,6 @@ def selection_sort(arr):
 			if arr[j] < arr[min_idx]:
 				min_idx = j
 		arr[i], arr[min_idx] = arr[min_idx], arr[i]
-		print arr
 	return arr
 """
 """
@@ -80,7 +79,7 @@ def quicksort(list, start, end):
 		
 	else:
 		return
-	print list
+	return list
 
 
 #to check once
@@ -90,7 +89,9 @@ def merge(a, b):
 	m = len(a)
 	n = len(b)
 	k = 0
-	while i<m and j<n:
+	i = 0
+	j = 0
+	while i < m and j<n:
 		if a[i] > b[j]:
 			c[k] = b[j]
 			j+=1
@@ -155,7 +156,7 @@ if __name__=="__main__":
 	#print "Initial Array: ", arr
 	#print "Bubble Sort: ", bubble_sort(arr)
 	#print "Insertion Sort: ", insertion_sort(arr)
-	print "Selection Sort: ", selection_sort(arr)
+	print("Selection Sort: ", selection_sort(arr))
 	# print "Quick Sort: ", quicksort(arr,0, len(arr)-1)
 	#print "Merge Sort: ", merge_sort(arr)
 	#print "Bucket Sort", bucket_sort(arr)

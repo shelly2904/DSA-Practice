@@ -2,7 +2,6 @@
 #arrange this array in sorted manner aesc.
 
 def find_split(arr):
-	print arr
 	breakpoint = 0
 	for i in range(0, len(arr)):
 		if arr[i] > arr[i+1]:
@@ -16,12 +15,16 @@ def sort_arr(arr, idx):
 		for j in range(idx, n-1):
 			if arr[j] > arr[j+1]:
 				arr[j+1], arr[j] = arr[j], arr[j+1]
-	print arr
+	return arr
 
+
+# Question is to merge two sorted arrays where one array has enough space to accomodate
 
 
 if __name__=="__main__":
 	A = [1,2,3,4,5,6,10,9,8,7]
 	breakpoint = find_split(A)
-	print breakpoint
-	sort_arr(A, breakpoint)
+	print(breakpoint)
+	print(sort_arr(A, breakpoint))
+
+

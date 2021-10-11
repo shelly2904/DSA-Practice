@@ -44,6 +44,9 @@ class Solution(object):
 
         return root
 
+
+def construct_tree_from_traversals()
+
 def inorder(root):
     if root:
         inorder(root.left)
