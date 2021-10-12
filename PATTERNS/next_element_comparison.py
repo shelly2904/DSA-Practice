@@ -116,6 +116,48 @@ def stock_span_problem(arr):
 """
 Maximum Area in Histogram
 """
+import sys
+def mah(arr):
+    nsr_arr = [-1] * len(arr)
+    nsl_arr = [-1] * len(arr)
+
+    # stack
+    stack = deque()
+
+    # to start from the end
+    for i in range(len(arr)-1, -1, -1):
+        while stack:
+            if stack[-1][0] > arr[i]:
+                stack.pop()
+            else:
+                nsr_arr[i] = stack[-1][1]
+                break
+        stack.append((arr[i], i))
+
+    # stack
+    stack1 = deque()
+
+    # to start from the end
+    for i in range(len(arr)):
+        while stack1:
+            if stack1[-1][0] > arr[i]:
+                stack1.pop()
+            else:
+                nsl_arr[i] = stack1[-1][1]
+                break
+        stack1.append((arr[i], i))
+
+    max_area = - sys.maxsize - 1
+    for i in range(len(arr)):
+        ngl_index = nsl_arr[i]
+        ngr_index = nsr_arr[i]
+
+        # if ngl_index == -1 or ngr_index == -1:
+        #     continue
+        curr_area = (ngr_index - ngl_index - 1) * arr[i]
+        max_area = max(max_area, curr_area)
+
+    return max_area
 
 
 
@@ -127,4 +169,6 @@ Maximum Area histogram in Binary Matrix
 Rain water trapping
 """
 
-print(stock_span_problem([100, 80, 60, 70, 60, 75, 85]))
+
+
+# print(mah([6, 2, 5, 4, 5, 1, 2, 6]))
