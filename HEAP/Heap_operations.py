@@ -49,9 +49,6 @@ class Heap(object):
 			self.delete(self.heap[0], False)
 		return ele
 
-
-
-
 if __name__=="__main__":
 	'''
 	#Building a min heap
@@ -99,7 +96,7 @@ if __name__=="__main__":
 		minheap.insert(i)
 	arr = minheap.print_heap()
 	for i in range(0, k):
-		print minheap.extract()
+		print(minheap.extract())
 
 	
 
