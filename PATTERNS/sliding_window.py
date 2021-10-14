@@ -91,9 +91,80 @@ def count_anagrams(string, pat):
 
     return cnt
 
-print(count_anagrams("aabaaabaa", "aaba"))
+
+"""
+Minimum window substring
+"""
+
+from collections import defaultdict
+
+def minimum_substring(string, pat):
+
+    hash_map = defaultdict(int)
+    cnt = 0
+    n = len(string)
+
+    for i in pat:
+        hash_map[i] += 1
+        if hash_map[i] == 1:
+            cnt += 1
+
+    i = 0
+    j = 0
+    start = 0
+    ans = len(string) + 1
+
+    while j < len(string):
+        hash_map[string[j]] -= 1
+
+        if hash_map[string[j]] == 0:
+            cnt -= 1
+            while cnt == 0:
+                print(hash_map, cnt, ans, start)
+                if j-i+1 < ans:   # get the minimum list
+                    ans = j-i+1
+                    start = i
+
+                hash_map[string[i]] += 1
+                if hash_map[string[i]] > 0:
+                    cnt += 1
+                i += 1
+        j += 1
+
+    return string[start:start+ans]
+
+"""
+MAximum of all subarrays of size k
+"""
+def max_subarray(arr, k):
+    n = len(arr)
+
+    max_ele = -sys.maxsize - 1
+
+    max_arr = []
+    i = 0
+    j = 0
+    while j < n:
+        max_ele = max(max_ele, arr[j])
+
+        if j -i + 1 == k:
+            max_arr.append(max_ele)
+            i += 1
+            j = i
+        else:
+            j += 1
+
+    return max_arr
+
+print(max_subarray([1,3,-1,4,5,1,2], 3))
 
 
+
+# print(minimum_substring("abaacbabac", "abc"))
+
+
+
+#print(count_anagrams("aabaaabaa", "aaba"))
 #print(first_neg_k([-8,2,3,-6,10], 2))
 #print(max_sub_k([2,5,1,8,2,9,1], 3))
 
