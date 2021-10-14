@@ -16,10 +16,16 @@ class MaxHeap:
         return -self.data[0]
 
     def push(self, val):
-        heapq.heappush(self.data, -val)
+        if "tuple" in str(type(val)):
+            val = (-val[0], val[1])
+        else:
+            val = -val
+        heapq.heappush(self.data, val)
 
     def pop(self):
         return heapq.heappop(self.data)
+
+
 
 
 class MinHeap:
@@ -101,14 +107,36 @@ def k_closest(arr, x, k):
         i += 1
     return res
 
-print(k_closest([6, 5, 7, 8, 10, 9], 7, 3))
 
+"""
+K-frequent element
+"""
+from collections import defaultdict
 
+def k_frequent(arr, k):
+    hp = MaxHeap()
+    res = []
 
+    hashmap = defaultdict(int)
 
+    for i in range(len(arr)):
+        hashmap[arr[i]] += 1
 
+    for key,v in hashmap.items():
+        hp.push((v, key))
+
+    id = 0
+    while id < k:
+        (idx, value) = hp.pop()
+        res.append(value)
+        id += 1
+
+    return res
+
+print(k_frequent([6, 6, 6, 9, 10, 9, 10, 8], 3))
 
 # Calling functions
+# print(k_closest([6, 5, 7, 8, 10, 9], 7, 3))
 # print(k_sorted([6, 5, 3, 2, 8, 10, 9], 3))
 # print(k_smallest([1,4,2,3,5,6], 3))
 # print(k_largest([1,4,2,5,7,8,6], 3))
