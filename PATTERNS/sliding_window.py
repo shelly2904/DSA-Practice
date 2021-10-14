@@ -156,14 +156,92 @@ def max_subarray(arr, k):
 
     return max_arr
 
-print(max_subarray([1,3,-1,4,5,1,2], 3))
+
+"""
+Given an array containing N positive integers and an integer K. 
+Your task is to find the length of the longest Sub-Array with sum of the elements equal to the given value K.
+"""
+
+def max_sub_sum(arr, k):
+    n = len(arr)
+
+    sum = 0
+    start = 0
+    ans = 0
+
+    i = 0
+    j = 0
+
+    while j < n:
+
+        sum += arr[j]
+        print(arr[i:j + 1], sum)
+        if sum == k:
+            if ans <= j - i + 1:
+                ans = j - i + 1
+                start = i
+            sum = 0
+            i += 1
+            j = i
+
+        else:
+            j += 1
+
+    return arr[start: start+ans]
 
 
+# TODO
+"""
+Given a string you need to print the size of the 
+longest possible substring that has exactly k unique characters.
+"""
 
-# print(minimum_substring("abaacbabac", "abc"))
+# TODO
+"""
+Given a string s, find the length of the longest substring without repeating characters.
+"""
+
+"""
+Pick a toy.
+"""
+
+def pick_toy(arr, k):
+    n = len(arr)
+    i = 0
+    j = 0
+
+    start = 0
+    end = 0  # Indices of the array for maximum toy collection
+
+    hash_map = defaultdict(int)
+    while j < n:
+        hash_map[arr[j]] += 1
+
+        if len(set(hash_map.keys())) == k:
+            if end < j - i + 1:
+                end = j - i + 1
+                start = i
+                print(i, j, end, start)
+                i += 1
+                j = i + 1
+                hash_map = defaultdict(int)
+            else:
+                print(i, j, end, start)
+                i += 1
+                j = i + 1
+                hash_map = defaultdict(int)
+
+        else:
+            j += 1
+
+    return arr[start: start+end]
 
 
+print(pick_toy([1,2,1,3,1,1,1,3,4,5,6], 2))
 
+#print(max_sub_sum([1,3,-1,-3,5,3,6,7], 4))
+#print(max_subarray([1,3,-1,-3,5,3,6,7], 3))
+#print(minimum_substring("abaacbabac", "abc"))
 #print(count_anagrams("aabaaabaa", "aaba"))
 #print(first_neg_k([-8,2,3,-6,10], 2))
 #print(max_sub_k([2,5,1,8,2,9,1], 3))
