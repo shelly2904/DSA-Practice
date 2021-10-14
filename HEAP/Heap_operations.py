@@ -14,16 +14,16 @@ class Heap(object):
 
 	def heapify_min(self):
 		i = self.count - 1
-		while i > 0 and self.heap[i] < self.heap[(i-1)/2]:
-			self.heap[i], self.heap[(i-1)/2] = self.heap[(i-1)/2],  self.heap[i]
-			i = (i-1)/2
+		while i > 0 and self.heap[i] < self.heap[(i-1)//2]:
+			self.heap[i], self.heap[(i-1)//2] = self.heap[(i-1)//2],  self.heap[i]
+			i = (i-1)//2
 
 
 	def heapify_max(self):
 		i = self.count - 1
-		while i > 0 and self.heap[i] > self.heap[(i-1)/2]:
-			self.heap[i], self.heap[(i-1)/2] = self.heap[(i-1)/2],  self.heap[i]
-			i = (i-1)/2
+		while i > 0 and self.heap[i] > self.heap[(i-1)//2]:
+			self.heap[i], self.heap[(i-1)//2] = self.heap[(i-1)//2],  self.heap[i]
+			i = (i-1)//2
 
 
 	def print_heap(self):
