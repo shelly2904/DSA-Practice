@@ -8,24 +8,39 @@ K-th smallest/largest element
 
 import heapq
 
+
 class MaxHeap:
     def __init__(self):
         self.data = []
 
     def top(self):
-        return -self.data[0]
+        return self.data[0]
 
     def push(self, val):
-        if "tuple" in str(type(val)):
-            val = (-val[0], val[1])
-        else:
-            val = -val
         heapq.heappush(self.data, val)
+        self.data = list(reversed(self.data))
 
     def pop(self):
-        return heapq.heappop(self.data)
+        return heapq.heappop(list(reversed(self.data)))
+        self.data = list(reversed(self.data))
 
-
+#
+# class MaxHeap:
+#     def __init__(self):
+#         self.data = []
+#
+#     def top(self):
+#         return -self.data[0]
+#
+#     def push(self, val):
+#         if "tuple" in str(type(val)):
+#             val = (-val[0], val[1])
+#         else:
+#             val = -val
+#         heapq.heappush(self.data, val)
+#
+#     def pop(self):
+#         return - heapq.heappop(self.data)
 
 
 class MinHeap:
@@ -133,7 +148,35 @@ def k_frequent(arr, k):
 
     return res
 
-print(k_frequent([6, 6, 6, 9, 10, 9, 10, 8], 3))
+
+"""
+Find median of running integers
+"""
+
+def find_running_median(arr):
+    minheap = MinHeap()
+    maxheap = MaxHeap()
+
+    for num in arr:
+
+        if not maxheap.data or maxheap.data[0] >= num:
+            maxheap.push(num)
+        else:
+            minheap.push(num)
+
+        if len(maxheap.data) > len(minheap.data) + 1:
+            minheap.push(maxheap.pop())
+        elif len(maxheap.data) < len(minheap.data):
+            maxheap.push(minheap.pop())
+
+        if len(maxheap.data) == len(minheap.data):
+            print("Median is: ", (maxheap.pop()/2 + minheap.pop()/2))
+        else:
+            print("Median is: ", maxheap.pop())
+
+find_running_median([1, 2, 3, 4 ])
+
+# print(k_frequent([6, 6, 6, 9, 10, 9, 10, 8], 3))
 
 # Calling functions
 # print(k_closest([6, 5, 7, 8, 10, 9], 7, 3))
