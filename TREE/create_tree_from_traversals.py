@@ -1,13 +1,9 @@
 # Definition for a binary tree node.
 
 
-class TreeNode(object):
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
+from tree_utils import *
 import sys
+from tree_traversals import inorder
 
 
 class Solution(object):
@@ -34,7 +30,7 @@ class Solution(object):
                 stack.append(p)
                 p = node
                 i += 1
-            elif preorder[i] > p.val and preorder[i] <= top_val:
+            elif p.val < preorder[i] <= top_val:
                 node = TreeNode(preorder[i])
                 p.right = node
                 p = node
@@ -45,17 +41,7 @@ class Solution(object):
         return root
 
 
-def construct_tree_from_traversals()
-
-def inorder(root):
-    if root:
-        inorder(root.left)
-        print(root.val)
-        inorder(root.right)
-
-arr = [8,5,1,7,10,12]
-
+arr = [8, 5, 1, 7, 10, 12]
 sol = Solution()
 root = sol.bstFromPreorder(arr)
 inorder(root)
-
