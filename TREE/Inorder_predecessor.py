@@ -1,4 +1,4 @@
-from tree_questions import Node, inorder, Stack, Queue
+from tree_patterns_3 import Node, inorder, Stack, Queue
 
 
 def search(root, key):
