@@ -1,7 +1,38 @@
 from tree_utils import *
 
 """
-Find the lowest common ancestor
+to check whether a tree is complete binary tree or not
+"""
+
+
+def check_complete(root):
+    if root is None:
+        return False
+    stack = Stack()
+    stack.push(root)
+    flag = True
+    while len(stack.arr) > 0:
+        el = stack.pop()
+        if not el.left and el.right:
+            flag = False
+            return False
+
+        if not el.left and not el.right:
+            flag = True
+
+        if el.left:
+            stack.push(el.left)
+
+        if el.right:
+            stack.push(el.right)
+    if flag:
+        return True
+    else:
+        return False
+
+
+"""
+find the lowest common ancestor
 """
 
 
@@ -33,6 +64,7 @@ def print_all_ancestors(root, key):
     if print_all_ancestors(root.left, key) or print_all_ancestors(root.right, key):
         print(root.data)
         return True
+
 
 
 if __name__ == "__main__":
