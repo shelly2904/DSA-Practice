@@ -15,7 +15,7 @@ def check_complete(root):
         el = stack.pop()
         if not el.left and el.right:
             flag = False
-            return False
+            return flag
 
         if not el.left and not el.right:
             flag = True
@@ -66,6 +66,61 @@ def print_all_ancestors(root, key):
         return True
 
 
+"""
+K-th ancestor of a node
+1. We can compute the ancestor of each node by traversing through level wise
+2. Next we iterate through  the hashmap and check if k == cnt
+"""
+
+from collections import defaultdict, deque
+
+def kth_ancestor(root, node, k):
+
+    hashmap = defaultdict(int)
+    hashmap[root.data] = -1
+    queue = deque()
+    queue.append(root)
+
+    while queue:
+        n = queue.popleft()
+        if n.left:
+            hashmap[n.left.data] = n.data
+            queue.append(n.left)
+        if n.right:
+            hashmap[n.right.data] = n.data
+            queue.append(n.right)
+    cnt = 0
+    while node != -1:
+        node = hashmap[node]
+        cnt += 1
+        if cnt == k:
+            return node
+
+    return -1
+
+
+
+
+
+
+
+
+
+
+
+
+# def kth_ancestor(root, node, k):
+#     if not root:
+#         return None
+#     if root.data == node or (kth_ancestor(root.left, node, k) or kth_ancestor(root.right, node, k)):
+#         print(root.data)
+#         if k > 0:
+#             k -= 1
+#         elif k == 0:
+#             print(root.data)
+#             return None
+#         return root
+
 
 if __name__ == "__main__":
     root = Node(1)
@@ -75,4 +130,5 @@ if __name__ == "__main__":
     root.left.right = Node(5)
     root.left.right.right = Node(6)
     key = 3
-    print_all_ancestors(root, key)
+    # print_all_ancestors(root, key)
+    print(kth_ancestor(root, 6, 1))

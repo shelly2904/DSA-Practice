@@ -64,3 +64,18 @@ def maxDepth(root):
     if root is None:
         return 0
     return 1 + max(maxDepth(root.left), maxDepth(root.right))
+
+def mindepth_call(root):
+    if not root:
+        return 0
+
+    if not root.left and not root.right:
+        return 1
+
+    if not root.left:
+        return mindepth_call(root.right) + 1
+
+    if not root.right:
+        return mindepth_call(root.left) + 1
+
+    return min(mindepth_call(root.left), mindepth_call(root.right)) + 1
