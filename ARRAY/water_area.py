@@ -6,6 +6,7 @@ n vertical lines are drawn such that the two endpoints of the line i is at (i, a
 Find two lines, which, together with the x-axis forms a container, such that the container contains the most water.
 """
 
+
 class Solution(object):
     def maxArea(self, height):
         """
@@ -14,13 +15,10 @@ class Solution(object):
         """
 
         water_trapped = 0
-
         length = len(height)
-
         i, j = 0, length - 1
 
         while i < j:
-            # print(water_trapped, height[i], height[j], (j-i))
             water_trapped = max(water_trapped, min(height[i], height[j]) * (j - i))
             if height[i] < height[j]:
                 i += 1
@@ -29,7 +27,6 @@ class Solution(object):
 
         return water_trapped
 
+
 sol = Solution()
-print(sol.maxArea([1,8,6,2,5,4,8,3,7]))
-
-
+print(sol.maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]))

@@ -169,8 +169,29 @@ def mah(arr):
 Maximum Area histogram in Binary Matrix
 """
 
+
+def mah_matrix(arr):
+    r = len(arr)
+    c = len(arr[0])
+    max_area = -sys.maxsize - 1
+
+    res = [0] * c
+    for i in range(r):
+        for j in range(c):
+            if arr[i][j] != 0:
+                res[j] += arr[i][j]
+                max_area = max(max_area, mah(res))
+
+    return max_area
+
+
 """
 Rain water trapping
 """
 
+def rain_water_trapping():
+    pass
+
 # print(mah([6, 2, 5, 4, 5, 1, 2, 6]))
+
+print(mah_matrix([[1, 1, 0, 1], [1, 1, 1, 0], [1, 1, 1, 1]]))
