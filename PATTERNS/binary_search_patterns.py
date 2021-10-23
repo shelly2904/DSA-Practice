@@ -94,6 +94,40 @@ def last_occ(arr, key):
     return res
 
 
+"""
+Number of times the array is rotated
+"""
+
+
+def rotation_times(arr):
+    low = 0
+    high = len(arr) - 1
+    n = len(arr)
+
+    while low <= high:
+
+        mid = low + (high - low) // 2
+        # prev = (mid - 1 + n) % n
+        # nex = (mid + 1) % n
+        prev = mid - 1
+        nex = mid + 1
+
+        if arr[prev] > arr[mid] and arr[mid] <= arr[nex]:
+            return mid
+        elif arr[mid] > low:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1
+
+
+"""
+Search in nearly sorted array
+"""
+
+def search_nearly_sorted(arr, key):
+    
+
 # Binary search
 # print("Element found at", binary_search([1, 2, 3, 4, 5, 6, 7], 9))
 
@@ -104,5 +138,9 @@ def last_occ(arr, key):
 # print("Element found at", order_agnostic_search([1, 2, 3, 4, 5, 6, 7], 2))
 
 # First and last occurrence in sorted array
-print("Element found at", first_occ([1, 2, 4, 4, 4, 6, 7], 4))
-print("Element found at", last_occ([1, 2, 4, 4, 4, 6, 7], 4))
+# first = first_occ([1, 2, 4, 4, 4, 6, 7], 4)
+# last = last_occ([1, 2, 4, 4, 4, 6, 7], 4)
+# print(last - first + 1)
+
+# Rotation n times
+print("Element found at", rotation_times([18, 19, 20, 21, 2, 3, 4, 5]))
