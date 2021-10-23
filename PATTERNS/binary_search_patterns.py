@@ -121,13 +121,6 @@ def rotation_times(arr):
     return -1
 
 
-"""
-Search in nearly sorted array
-"""
-
-def search_nearly_sorted(arr, key):
-    
-
 # Binary search
 # print("Element found at", binary_search([1, 2, 3, 4, 5, 6, 7], 9))
 
@@ -143,4 +136,4 @@ def search_nearly_sorted(arr, key):
 # print(last - first + 1)
 
 # Rotation n times
-print("Element found at", rotation_times([18, 19, 20, 21, 2, 3, 4, 5]))
+# print("Element found at", rotation_times([18, 19, 20, 21, 2, 3, 4, 5]))
