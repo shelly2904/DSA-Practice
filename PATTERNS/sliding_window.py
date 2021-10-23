@@ -236,7 +236,6 @@ def pick_toy(arr, k):
 
     return arr[start: start+end]
 
-
 print(pick_toy([1,2,1,3,1,1,1,3,4,5,6], 2))
 
 #print(max_sub_sum([1,3,-1,-3,5,3,6,7], 4))

@@ -38,9 +38,7 @@ def minOperations(arr):
 def printInteger(n):
     print('[', n, ']', sep='', end='')
 
-
 test_case_number = 1
-
 
 def check(expected, output):
     global test_case_number

@@ -158,7 +158,6 @@ def find_running_median(arr):
     maxheap = MaxHeap()
 
     for num in arr:
-
         if not maxheap.data or maxheap.data[0] >= num:
             maxheap.push(num)
         else:

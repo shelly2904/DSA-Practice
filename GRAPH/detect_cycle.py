@@ -1,6 +1,5 @@
 from graph_traversals import Stack, dfs
 
-
 def detect_cycle_directed(G, s):
 	is_cyclic = False
 	current = s
@@ -21,7 +20,6 @@ def detect_cycle_directed(G, s):
 	return is_cyclic
 
 
-
 if __name__=="__main__":
 	'''
 	graph = {'0': set(['1', '2']),
@@ -34,7 +32,6 @@ if __name__=="__main__":
 		 '1': set(['2']),
 		 '2': set(['3']),
 		 '3': []}
-	
 
 	start = '0'
 	if detect_cycle_directed(graph, start):
