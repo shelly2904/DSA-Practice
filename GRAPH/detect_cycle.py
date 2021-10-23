@@ -18,6 +18,7 @@ def detect_cycle_undirected_bfs(G, s):
                 return True
     return False
 
+
 def detect_cycle_undirected_dfs(G, s, visit, parent):
     visit[s] = True
     for i in G[s]:
@@ -28,6 +29,16 @@ def detect_cycle_undirected_dfs(G, s, visit, parent):
             return True
     return False
 
+
+def detect_cycle_directed_dfs(G, s, visit):
+    visit[s] = True
+    for i in G[s]:
+        if not visit[i]:
+            if detect_cycle_undirected_dfs(G, i, visit, s):
+                return True
+        else:
+            return True
+    return False
 
 
 # def detect_cycle_directed(G, s):
@@ -63,16 +74,18 @@ if __name__ == "__main__":
     #          '2': set(['3']),
     #          '3': []}
 
-    graph = {'0': {'1'},
-            '1': {'0', '2'},
-            '2': {'1', '3'},
-            '3': {'2', '4'},
-            '4': ['3', '2']}
+    graph = {'0': {},
+             '1': {},
+             '2': {},
+             '3': {},
+             '4': []}
 
     visited = defaultdict(bool)
     start = '0'
     # print(detect_cycle_undirected_dfs(graph, start, visited, -1))
-    print(detect_cycle_undirected_bfs(graph, start))
+    # print(detect_cycle_undirected_bfs(graph, start))
+    print(detect_cycle_directed_dfs(graph, start, visited))
+
     # if detect_cycle_directed(graph, start):
     #     print("There is a cycle")
     # else:
