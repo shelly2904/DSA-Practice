@@ -1,3 +1,4 @@
+from binary_search_patterns import binary_search, first_occ
 """
 Search in nearly sorted array
 """
@@ -65,11 +66,38 @@ Find element in infinite sorted array
 
 
 def search_infinite(arr, key):
-    pass
+    low = 0
+    high = 1
+    val = arr[0]
+
+    while val < key:
+        low = high
+        high *= 2
+        val = arr[high]
+
+    idx = binary_search(arr[low: high+1], key)
+    if idx == -1:
+        return idx
+    else:
+        return idx + low
 
 
 def search_1(arr, key):
-    pass
+    low = 0
+    high = 1
+    val = arr[0]
+
+    while val < key:
+        low = high
+        high *= 2
+        val = arr[high]
+
+    idx = first_occ(arr[low: high+1], key)
+    if idx == -1:
+        return idx
+    else:
+        return idx + low
+
 
 
 """
@@ -81,6 +109,10 @@ def minimum_diff(arr, key):
     pass
 
 
-# Floor
-print("Floor is", find_floor([1,2,3,4,6,7,8], 5))
-print("Ceil is", find_ceil([1,2,3,4,6,7,8], 5))
+# Floor and ceil
+# print("Floor is", find_floor([1, 2, 3, 4, 6, 7, 8], 5))
+# print("Ceil is", find_ceil([1, 2, 3, 4, 6, 7, 8], 5))
+
+# Search in infinite
+# print(search_infinite([3, 5, 7, 9, 10, 90, 100, 130, 140, 160, 170], 100))
+print(search_1([0, 0, 0, 1, 1, 1], 1))
