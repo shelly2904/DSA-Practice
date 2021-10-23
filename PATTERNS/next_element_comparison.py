@@ -8,8 +8,8 @@ Foundation patterns:
 
 from collections import deque
 
-def ngr(arr):
 
+def ngr(arr):
     # Output arr
     res = [-1] * len(arr)
 
@@ -29,7 +29,6 @@ def ngr(arr):
 
 
 def ngl(arr):
-
     # Output arr
     res = [-1] * len(arr)
 
@@ -46,6 +45,7 @@ def ngl(arr):
                 break
         stack.append(arr[i])
     return res
+
 
 def nsr(arr):
     # Output arr
@@ -64,6 +64,7 @@ def nsr(arr):
                 break
         stack.append(arr[i])
     return res
+
 
 def nsl(arr):
     # Output arr
@@ -87,6 +88,7 @@ def nsl(arr):
 """
 Stock Span Problem
 """
+
 
 def stock_span_problem(arr):
     # Output arr
@@ -113,10 +115,13 @@ def stock_span_problem(arr):
 
     return res
 
+
 """
 Maximum Area in Histogram
 """
 import sys
+
+
 def mah(arr):
     nsr_arr = [-1] * len(arr)
     nsl_arr = [-1] * len(arr)
@@ -125,7 +130,7 @@ def mah(arr):
     stack = deque()
 
     # to start from the end
-    for i in range(len(arr)-1, -1, -1):
+    for i in range(len(arr) - 1, -1, -1):
         while stack:
             if stack[-1][0] > arr[i]:
                 stack.pop()
@@ -160,7 +165,6 @@ def mah(arr):
     return max_area
 
 
-
 """
 Maximum Area histogram in Binary Matrix
 """
@@ -168,7 +172,5 @@ Maximum Area histogram in Binary Matrix
 """
 Rain water trapping
 """
-
-
 
 # print(mah([6, 2, 5, 4, 5, 1, 2, 6]))
