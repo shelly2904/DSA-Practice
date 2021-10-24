@@ -7,7 +7,6 @@ import re
 import sys
 
 
-
 #
 # Complete the 'circuitsOutput' function below.
 #
@@ -28,29 +27,27 @@ def perform_operation(operator, operand_1=None, operand_2=None):
             res = "0"
     # print(operator, operand_1, operand_2, res)
     return res
-    
+
+
 def circuitsOutput(circuitsExpression):
     results = []
     for exp in circuitsExpression:
 
-        
         operator_list = ["&", "|", "!"]
         operand_list = ["0", "1"]
         stack = []
-        
-        
+
         for char in exp:
             if char in [",", " "]:
                 continue
-            
+
             # operator_1 = res
             if char != "]":
                 stack.append(char)
-                continue 
-            
-            
+                continue
+
             if char == "]":
-                print("Before: ",stack)
+                print("Before: ", stack)
                 operator = None
                 operand_1 = None
                 operand_2 = None
@@ -67,17 +64,16 @@ def circuitsOutput(circuitsExpression):
                         res = perform_operation(operator, operand_1, operand_2)
                         print(operator, operand_1, operand_2, res)
                         stack.append(str(res))
-                        print("After: ",stack)
+                        print("After: ", stack)
                         break
 
-            
         results.append(res)
     return results
-            
+
     # Write your code here
+
 
 if __name__ == '__main__':
     circuitsExpression = ['[|, [&, 1, [!, 0]], [!, [|, [|, 1, 0], [!, 1]]]]']
     result = circuitsOutput(circuitsExpression)
     print(result)
-   
