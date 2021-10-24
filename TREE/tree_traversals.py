@@ -74,9 +74,6 @@ def vertical_order_traversal(root):
     return list(sorted_m.values())
 
 
-
-
-
 if __name__ == "__main__":
     root = Node(1)
     root.left = Node(2)
