@@ -24,6 +24,5 @@ class Solution(object):
         return self.permute(digits, 0)
 
 
-
 sol = Solution()
-print(sol.letterCombinations("23"))
+print(sol.letterCombinations("235"))

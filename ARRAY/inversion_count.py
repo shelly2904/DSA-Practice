@@ -7,4 +7,4 @@ def find_ic(arr):
 	return ic
 
 
-print find_ic([1,5,3,2,4])
+print(find_ic([1,5,3,2,4]))

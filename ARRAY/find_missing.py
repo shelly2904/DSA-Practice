@@ -16,4 +16,4 @@ def find_missing1(arr):
     sum_m = sum(arr)
     return sum_n - sum_m
 
-print "Missing number is", find_missing1([1,2,3,4,6])
+print("Missing number is", find_missing1([1,2,3,4,6]))

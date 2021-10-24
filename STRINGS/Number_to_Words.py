@@ -17,7 +17,7 @@ def extract_three(number):
 			str = convert_to_word(remainder) + " " + bases[places] + ' '+ str
 		number = number/1000
 		places += 1
-	print str
+	print(str)
 
 
 def convert_to_word(number):
@@ -27,7 +27,7 @@ def convert_to_word(number):
 	if number == 0:
 		return teen_num
 	remainder = number%10
-	print remainder
+	print(remainder)
 	if remainder < 10:
 		hund_num = ones[remainder] + " " + 'hundred'
 	number = number/10
@@ -48,7 +48,6 @@ def extract_teen(number):
 
 
 def num_rec(number, place):
-	print number, place
 	remainder = number %100
 
 	if number == 0:
@@ -65,11 +64,10 @@ def num_rec(number, place):
 			num = tens[remainder/10] + ' ' + ones[remainder%10]
 	pl = bases[place]
 	number /= 100
-	print num, pl
 	return num_rec(number, place+1) + ' ' + num + ' '+ pl
 
 
-print extract_three(2040600000065000)
+print(extract_three(2040600000065000))
 
 
 

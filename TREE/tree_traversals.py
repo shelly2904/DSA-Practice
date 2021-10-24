@@ -43,6 +43,40 @@ def print_levelwise(root):
         print()
 
 
+from collections import defaultdict, deque, OrderedDict
+def vertical_order_traversal(root):
+    if not root:
+        return []
+
+    queue = deque()
+    v_node = defaultdict(list)
+    hd_node = defaultdict(int)
+
+    queue.append(root)
+    hd_node[root] = 0
+    v_node[0] = [root.data]
+
+    while queue:
+        curr = queue.popleft()
+        if curr.left:
+            queue.append(curr.left)
+            hd_node[curr.left] = hd_node[curr] - 1
+            hd = hd_node[curr.left]
+            v_node[hd].append(curr.left.data)
+
+        if curr.right:
+            queue.append(curr.right)
+            hd_node[curr.right] = hd_node[curr] + 1
+            hd = hd_node[curr.right]
+            v_node[hd].append(curr.right.data)
+
+    sorted_m = OrderedDict(sorted(v_node.items()))
+    return list(sorted_m.values())
+
+
+
+
+
 if __name__ == "__main__":
     root = Node(1)
     root.left = Node(2)
@@ -51,4 +85,6 @@ if __name__ == "__main__":
     root.left.right = Node(5)
     root.left.right.right = Node(6)
     # inorder_without_recursion(root)
-    print_levelwise(root)
+    #print_levelwise(root)
+
+    print(vertical_order_traversal(root))

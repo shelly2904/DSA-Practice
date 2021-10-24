@@ -30,6 +30,6 @@ def check_anagrams(stringA, stringB):
 
 
 if __name__=="__main__":
-	print count_char("abababbcdfsda")
-	print check_anagrams('abc', 'abcd')
+	print(count_char("abababbcdfsda"))
+	print(check_anagrams('abc', 'abcd'))
 

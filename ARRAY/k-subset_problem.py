@@ -8,7 +8,7 @@ def find_pair(arr, x):
 		print(start, end)
 		if (arr[start] + arr[end]) == x:
 			return (start, end)
-		elif  arr[start] + arr[end] > x:
+		elif arr[start] + arr[end] > x:
 			end -= 1
 		else:
 			start += 1
@@ -17,7 +17,6 @@ def find_pair(arr, x):
 
 def find_pair_optimised(arr, x):
 	hasharr = [0] * x
-
 	for i in range(0, len(arr)):
 		# print(hasharr, arr[i], i, x - arr[i])
 		if hasharr[x - arr[i]] > 0:

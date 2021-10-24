@@ -39,88 +39,70 @@ def bubble_sort(arr):
 
 
 # QUICK SORT
-# O(LOG N)
-def partition(list, start, end):
-    pivot = list[end]  # Partition around the last value
-    bottom = start - 1  # Start outside the area to be partitioned
-    top = end  # Ditto
+# O(N LOG N)
+def partition(array, start, end):
+    pivot = array[start]
+    low = start + 1
+    high = end
 
-    done = 0
-    while not done:  # Until all elements are partitioned...
+    while True:
+        while low <= high and array[high] >= pivot:
+            high = high - 1
 
-        while not done:  # Until we find an out of place element...
-            bottom = bottom + 1  # ... move the bottom up.
+        while low <= high and array[low] <= pivot:
+            low = low + 1
 
-            if bottom == top:  # If we hit the top...
-                done = 1  # ... we are done.
-                break
+        if low <= high:
+            array[low], array[high] = array[high], array[low]
+            # The loop continues
+        else:
+            break
 
-            if list[bottom] > pivot:  # Is the bottom out of place?
-                list[top] = list[bottom]  # Then put it at the top...
-                break  # ... and start searching from the top.
+    array[start], array[high] = array[high], array[start]
 
-        while not done:  # Until we find an out of place element...
-            top = top - 1  # ... move the top down.
+    return high
 
-            if top == bottom:  # If we hit the bottom...
-                done = 1  # ... we are done.
-                break
-
-            if list[top] < pivot:  # Is the top out of place?
-                list[bottom] = list[top]  # Then put it at the bottom...
-                break  # ...and start searching from the bottom.
-
-    list[top] = pivot  # Put the pivot in its place.
-    return top  # Return the split point
-
-
-def quicksort(list, start, end):
-    if start < end:  # If there are two or more elements...
-        split = partition(list, start, end)  # ... partition the sublist...
-        quicksort(list, start, split - 1)  # ... and sort both halves.
-        quicksort(list, split + 1, end)
-
-    else:
+def quick_sort(array, start, end):
+    if start >= end:
         return
-    return list
 
+    p = partition(array, start, end)
+    quick_sort(array, start, p-1)
+    quick_sort(array, p+1, end)
 
 # to check once
 # MERGE SORT
 # O(N LOG N)
 def merge_sort(arr):
-    mid = len(arr) // 2
-    l = arr[:mid]
-    r = arr[mid:]
-    merge_sort(l)
-    merge_sort(r)
-    m = len(l)
-    n = len(r)
-    i = j = k = 0
-    while i < m and j < n:
-        if l[i] < r[j]:
+    if len(arr) > 1:
+        mid = len(arr) // 2
+        l = arr[:mid]
+        r = arr[mid:]
+
+        merge_sort(l)
+        merge_sort(r)
+        m = len(l)
+        n = len(r)
+        i = j = k = 0
+
+        while i < m and j < n:
+            if l[i] < r[j]:
+                arr[k] = l[i]
+                i += 1
+            else:
+                arr[k] = r[j]
+                j += 1
+            k += 1
+
+        while i < m:
             arr[k] = l[i]
             i += 1
-        elif l[i] > r[j]:
-            arr[k] = r[j]
-            j += 1
-        else:
-            arr[k] = l[i]
+            k += 1
+
+        while j < n:
             arr[k] = r[j]
             k += 1
-            i += 1
             j += 1
-        k += 1
-
-    while i < m:
-        arr[k] = l[i]
-        i += 1
-        k += 1
-
-    while j < n:
-        arr[k] = r[j]
-        k += 1
-        j += 1
 
     return arr
 
@@ -130,8 +112,7 @@ def merge_sort(arr):
 def find_max(arr):
     max_ele = 0
     for i in arr:
-        if i > max_ele:
-            max_ele = i
+        max_ele = max(max_ele, i)
     return max_ele
 
 
@@ -146,12 +127,13 @@ def bucket_sort(arr):
     return sorted_array
 
 
-if __name__ == "__main__":
-    arr = [3, 4, 8, 5, 7, 6, 2, 1]
-    # print "Initial Array: ", arr
-    # print "Bubble Sort: ", bubble_sort(arr)
-    # print "Insertion Sort: ", insertion_sort(arr)
-    # print("Selection Sort: ", selection_sort(arr))
-    # print "Quick Sort: ", quicksort(arr,0, len(arr)-1)
-    print("Merge Sort: ", merge_sort(arr))
-    # print "Bucket Sort", bucket_sort(arr)
+# if __name__ == "__main__":
+array = [3, 4, 8, 5, 7, 6, 2, 1]
+# print "Initial Array: ", arr
+# print "Bubble Sort: ", bubble_sort(arr)
+# print "Insertion Sort: ", insertion_sort(arr)
+# print("Selection Sort: ", selection_sort(arr))
+# quick_sort(array,0, len(array)-1)
+# print(array)
+# print("Merge Sort: ", merge_sort(arr))
+print("Bucket Sort", bucket_sort(array))
