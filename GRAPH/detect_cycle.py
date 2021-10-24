@@ -69,22 +69,22 @@ if __name__ == "__main__":
          '3': set(['3'])}
     '''
 
-    # graph = {'0': set(['1']),
-    #          '1': set(['2']),
-    #          '2': set(['3']),
-    #          '3': []}
+    graph = {'0': {'1'},
+             '1': {'2'},
+             '2': {'3'},
+             '3': {'0'}}
 
-    graph = {'0': {},
-             '1': {},
-             '2': {},
-             '3': {},
-             '4': []}
+    # graph = {'0': {},
+    #          '1': {},
+    #          '2': {},
+    #          '3': {},
+    #          '4': []}
 
     visited = defaultdict(bool)
     start = '0'
     # print(detect_cycle_undirected_dfs(graph, start, visited, -1))
-    # print(detect_cycle_undirected_bfs(graph, start))
-    print(detect_cycle_directed_dfs(graph, start, visited))
+    print(detect_cycle_undirected_bfs(graph, start))
+    # print(detect_cycle_directed_dfs(graph, start, visited))
 
     # if detect_cycle_directed(graph, start):
     #     print("There is a cycle")
