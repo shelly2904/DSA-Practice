@@ -189,9 +189,34 @@ def mah_matrix(arr):
 Rain water trapping
 """
 
-def rain_water_trapping():
-    pass
+
+def rain_water_trapping(arr):
+    ngr_arr = [-1] * len(arr)
+    ngl_arr = [-1] * len(arr)
+
+    ngl_arr[0] = arr[0]
+    ngr_arr[-1] = arr[-1]
+
+    # to start from the end
+    for i in reversed(range(len(arr))):
+        if i == len(arr)-1:
+            continue
+        ngr_arr[i] = max(arr[i], ngr_arr[i + 1])
+
+    # to start from the end
+    for i in range(1, len(arr)):
+        ngl_arr[i] = max(arr[i], ngl_arr[i - 1])
+
+    water = [0] * len(arr)
+    for i in range(len(arr)):
+        water[i] = min(ngl_arr[i], ngr_arr[i]) - arr[i]
+
+    water_trapped = 0
+    for i in range(len(water)):
+        water_trapped += water[i]
+    return water_trapped
+
 
 # print(mah([6, 2, 5, 4, 5, 1, 2, 6]))
-
-print(mah_matrix([[1, 1, 0, 1], [1, 1, 1, 0], [1, 1, 1, 1]]))
+# print(mah_matrix([[1, 1, 0, 1], [1, 1, 1, 0], [1, 1, 1, 1]]))
+print(rain_water_trapping([4,2,0,3,2,5]))
