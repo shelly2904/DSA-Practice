@@ -32,5 +32,5 @@ def max_flights_air(arr):
     return max_flights
 
 
-input = [Flight(4, 8), Flight(2, 5), Flight(17, 20), Flight(10, 21), Flight(9, 18)]
+input = [Flight(1, 4), Flight(2, 5), Flight(7, 9)]
 print(max_flights_air(input))

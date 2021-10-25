@@ -4,7 +4,6 @@ from tree_utils import *
 to check whether a tree is complete binary tree or not
 """
 
-
 def check_complete(root):
     if root is None:
         return False
@@ -95,18 +94,7 @@ def kth_ancestor(root, node, k):
         cnt += 1
         if cnt == k:
             return node
-
     return -1
-
-
-
-
-
-
-
-
-
-
 
 
 # def kth_ancestor(root, node, k):
